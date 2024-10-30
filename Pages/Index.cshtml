@@ -1,10 +1,37 @@
 ﻿@page
+@using static IBAS_menu.Pages.IndexModel
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "IBas Kantine";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    &nbsp;
+    <h1 class="display-4">Kantinens Menu for uge 45</h1>
+    &nbsp;
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <table>
+                <thead>
+                    <th>Dag</th>
+                    <th>Varm Ret</th>
+                    <th>Kold Ret</th>
+                </thead>
+                <tbody>
+                    @foreach (var menu in Model.MenuItems)
+                    {
+                        <tr>
+                            <td>@menu.Day</td>
+                            <td>@menu.WarmDish</td>
+                            <td>@menu.ColdDish</td>
+                        </tr>
+                    }
+            </table>
+
+        </div>
+
+    </div>
+    <div class="col-md-4"></div>
 </div>
